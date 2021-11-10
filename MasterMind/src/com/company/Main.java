@@ -10,7 +10,7 @@ public class Main {
         CodeGenerator generator = new CodeGenerator();
         generator.Generator();
 
-        //forloop aanmaken om UserGuess en HasPlayerWon 10x te herhalen
+
         UserGuess userInput = new UserGuess();
         userInput.UserGuessInput();
     }
