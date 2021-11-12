@@ -3,19 +3,24 @@ package camiel.nl;
 public class HasPlayerWon {
 
     private boolean CheckIfPlayerHasWon;
-    private String Correcttoken;
-    private String WrongPositionToken;
+    private String correctToken;
+    private String wrongPositionToken;
 
-    public HasPlayerWon(boolean checkIfPlayerHasWon, String correcttoken, String wrongPositionToken){
-        this.CheckIfPlayerHasWon = checkIfPlayerHasWon() ;
-        this.Correcttoken= "X";
-        this.WrongPositionToken= "O";
+    public HasPlayerWon(boolean checkIfPlayerHasWon){
+        this.CheckIfPlayerHasWon = checkIfPlayerHasWon;
+        this.correctToken = "X";
+        this.wrongPositionToken = "O";
+    }
+
+    public HasPlayerWon(){
+
     }
 
 
 // kijken of de speler gewonnen heeft
-    public boolean checkIfPlayerHasWon(UserGuess firstDigit, UserGuess secondDigit, UserGuess thirdDigit, UserGuess fourthDigit){
-        if(board[0] = firstDigit.getFirstDigit() && board[1]== secondDigit.getSecondDigit() && board[2] == thirdDigit.getThirdDigit() && board[3] == fourthDigit.getFourthDigit()){
+    public boolean checkIfPlayerHasWon(UserGuess firstDigit, UserGuess secondDigit, UserGuess thirdDigit, UserGuess fourthDigit, CodeGenerator firstCodeNumber, CodeGenerator secondCodeNumber, CodeGenerator thirdCodeNumber, CodeGenerator fourthCodeNumber){
+        if(firstCodeNumber.getFirstNumberCode() == firstDigit.getFirstDigit() && secondCodeNumber.getSecondNumberCode()== secondDigit.getSecondDigit() && thirdCodeNumber.getThirdNumberCode() == thirdDigit.getThirdDigit() && fourthCodeNumber.getFourthNumberGuess() == fourthDigit.getFourthDigit()){
+
         return true;
     } else {
         return false;
@@ -24,60 +29,60 @@ public class HasPlayerWon {
     }
 
 // als de speler niet gewonnen heeft kijken of er cijfers goed staan of voor komen in de combinatie
-    public void checkCorrectDigitPlace(UserGuess firstDigit, UserGuess secondDigit, UserGuess thirdDigit, UserGuess fourthDigit, CodeGenerator board[]){
+    public void checkCorrectDigitPlace(UserGuess firstDigit, UserGuess secondDigit, UserGuess thirdDigit, UserGuess fourthDigit, CodeGenerator firstCodeNumber, CodeGenerator secondCodeNumber, CodeGenerator thirdCodeNumber, CodeGenerator fourthCodeNumber){
 
-        String checkFirstDigit;
-        String checkSecondDigit;
-        String checkThirdDigit;
-        String checkFourthDigit;
+        String checkFirstToken = "";
+        String checkSecondToken = "";
+        String checkThirdToken = "";
+        String checkFourthToken = "";
 
         if(CheckIfPlayerHasWon = false){
 
-            if(firstDigit.getFirstDigit() = CodeGenerator board[0]){
-                checkFirstDigit = Correcttoken;
-            } else if(firstDigit.getFirstDigit() = board[1]){
-                checkFirstDigit = WrongPositionToken;
-            } else if(firstDigit.getFirstDigit() = board[2]){
-                checkFirstDigit = WrongPositionToken;
-            } else if(firstDigit.getFirstDigit() = board[3]){
-                checkFirstDigit = WrongPositionToken;
+            if(firstDigit.getFirstDigit() == firstCodeNumber.getFirstNumberCode()){
+                checkFirstToken = correctToken;
+            } else if(firstDigit.getFirstDigit() == secondCodeNumber.getSecondNumberCode()){
+                checkFirstToken = wrongPositionToken;
+            } else if(firstDigit.getFirstDigit() == thirdDigit.getFirstDigit()){
+                checkFirstToken = wrongPositionToken;
+            } else if(firstDigit.getFirstDigit() == fourthCodeNumber.getFourthNumberGuess()){
+                checkFirstToken = wrongPositionToken;
             }
 
-            if(secondDigit.getSecondDigit() = board[0]){
-               checkSecondDigit =  Correcttoken;
-            } else if(secondDigit.getSecondDigit() = board[1]){
-                checkSecondDigit =  WrongPositionToken;
-            } else if(secondDigit.getSecondDigit() = board[2]){
-                checkSecondDigit =  WrongPositionToken;
-            } else if(secondDigit.getSecondDigit() = board[3]){
-                checkSecondDigit =  WrongPositionToken;
+            if(secondDigit.getSecondDigit() == secondCodeNumber.getSecondNumberCode()){
+               checkSecondToken = correctToken;
+            } else if(secondDigit.getSecondDigit() == firstCodeNumber.getFirstNumberCode()){
+                checkSecondToken = wrongPositionToken;
+            } else if(secondDigit.getSecondDigit() == thirdCodeNumber.getThirdNumberCode()){
+                checkSecondToken = wrongPositionToken;
+            } else if(secondDigit.getSecondDigit() == fourthCodeNumber.getFourthNumberGuess()){
+                checkSecondToken = wrongPositionToken;
             }
 
-            if(thirdDigit.getThirdDigit() = board[0]){
-                checkThirdDigit = Correcttoken;
-            } else if(thirdDigit.getThirdDigit() = board[1]){
-                checkThirdDigit = WrongPositionToken;
-            } else if(thirdDigit.getThirdDigit() = board[2]){
-                checkThirdDigit = WrongPositionToken;
-            } else if(thirdDigit.getThirdDigit() = board[3]){
-                checkThirdDigit = WrongPositionToken;
+            if(thirdDigit.getThirdDigit() == thirdCodeNumber.getThirdNumberCode()){
+                checkThirdToken = correctToken;
+            } else if(thirdDigit.getThirdDigit() == firstCodeNumber.getFirstNumberCode()){
+                checkThirdToken = wrongPositionToken;
+            } else if(thirdDigit.getThirdDigit() == secondCodeNumber.getSecondNumberCode()){
+                checkThirdToken = wrongPositionToken;
+            } else if(thirdDigit.getThirdDigit() == fourthCodeNumber.getFourthNumberGuess()){
+                checkThirdToken = wrongPositionToken;
             }
 
-            if(fourthDigit.getFourthDigit() = board[0]){
-                checkFourthDigit = Correcttoken;
-            } else if(fourthDigit.getFourthDigit() = board[1]){
-                checkFourthDigit = WrongPositionToken;
-            } else if(fourthDigit.getFourthDigit() = board[2]){
-                checkFourthDigit = WrongPositionToken;
-            } else if(fourthDigit.getFourthDigit() = board[3]){
-                checkFourthDigit = WrongPositionToken;
+            if(fourthDigit.getFourthDigit() == fourthCodeNumber.getFourthNumberGuess()){
+                checkFourthToken = correctToken;
+            } else if(fourthDigit.getFourthDigit() == firstCodeNumber.getFirstNumberCode()){
+                checkFourthToken = wrongPositionToken;
+            } else if(fourthDigit.getFourthDigit() == secondCodeNumber.getSecondNumberCode()){
+                checkFourthToken = wrongPositionToken;
+            } else if(fourthDigit.getFourthDigit() == thirdCodeNumber.getThirdNumberCode()){
+                checkFourthToken = wrongPositionToken;
             }
 
         }
         System.out.println(" X: staat het cijfer op de juiste plaats");
         System.out.println(" O: dan kom het cijfer voor in de code");
         System.out.println("Je in voer is gecontroleerd en dit is het resultaat");
-        System.out.println(checkFirstDigit + "-" + checkSecondDigit + "-" + checkThirdDigit + "-" + checkFourthDigit);
+        System.out.println(checkFirstToken + "-" + checkSecondToken + "-" + checkThirdToken + "-" + checkFourthToken);
     }
 
 

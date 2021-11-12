@@ -1,13 +1,25 @@
 package camiel.nl;
 
-import java.lang.reflect.Array;
 import java.util.Random;
 
 public class CodeGenerator {
 
-     //private int[] toGuessCode;
-    private Integer[] toGuessCode;
-     // ieder array positie een eigen veld creeren?
+    private int firstNumberCode;
+    private int secondNumberCode;
+    private int thirdNumberCode;
+    private int fourthNumberGuess;
+
+    public CodeGenerator(int firstNumberGuess, int secondNumberGuess, int thirdNumberGuess, int fourthNumberGuess){
+        this.firstNumberCode = firstNumberGuess;
+        this.secondNumberCode = secondNumberGuess;
+        this.thirdNumberCode = thirdNumberGuess;
+        this.fourthNumberGuess = fourthNumberGuess;
+    }
+    public CodeGenerator(){
+
+    }
+
+
 
     // te raden code aanmaken
     public void generator(){
@@ -15,19 +27,27 @@ public class CodeGenerator {
         int maximum = 6;
 
         Random codeGenerator = new Random();
-        
-        toGuessCode = new Integer[4];
-        for(int i = 0; i < toGuessCode.length; i++){
-            toGuessCode[i] = codeGenerator.nextInt(maximum)+ 1;
-        }
+
+       firstNumberCode = codeGenerator.nextInt(maximum)+ 1;
+       secondNumberCode = codeGenerator.nextInt(maximum) + 1;
+       thirdNumberCode = codeGenerator.nextInt(maximum) + 1;
+       fourthNumberGuess = codeGenerator.nextInt(maximum) + 1;
     }
-    //public void toInteger(){
 
+    public int getFirstNumberCode(){
+        return firstNumberCode;
+    }
 
-    //}
+    public int getSecondNumberCode(){
+        return secondNumberCode;
+    }
 
-    public Integer[] getToGuessCode(){
+    public int getThirdNumberCode(){
+        return thirdNumberCode;
+    }
 
-        return toGuessCode;
+    public int getFourthNumberGuess(){
+        return fourthNumberGuess;
     }
 }
+

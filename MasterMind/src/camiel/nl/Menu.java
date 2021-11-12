@@ -10,6 +10,10 @@ public class Menu {
         this.name = name;
         this.score = 0;
     }
+
+    public Menu(){
+
+    }
     // menu aan maken
     // menu misschien in main classe zetten(?)
     public void showOptions(){
